@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HD Optical Clinic </title>
+    <style>
+        header{
+            text-align: center;
+        }
+        header img {
+            width: 100%;
+            height: auto; 
+        }
+    </style>
+</head>
+<body style="background-color: rgb(255, 255, 255);">
+
+<header>
+    <img src="\logo1.jpeg" alt="Header Image">
+</header>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Register Page</title>
+   <style>
+        body {
+            background-color: rgb(255, 255, 255);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px; /* Added margin to create space */
+        }
+
+        header img {
+            width: 80%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login and Register Page</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f8f9fa;
+                margin: 0;
+                padding: 0;
+                color: #333;
+            }
+
+            header {
+                text-align: center;
+                background-color: #3498db;
+                padding: 20px;
+                margin-bottom: 20px; /* Added margin to create space */
+            }
+
+            header img {
+                width: 80%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .glass-container {
+                background-color: rgba(52, 152, 219, 0.2);
+                border-radius: 10px;
+                padding: 20px;
+                margin: auto;
+                max-width: 400px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            h1.title {
+                font-size: 30px;
+                color: #3498db;
+                margin-bottom: 10px;
+            }
+
+            .field {
+                margin-bottom: 20px;
+            }
+
+            .input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #3498db;
+                border-radius: 4px;
+                box-sizing: border-box;
+                margin-top: 5px;
+            }
+
+            .button {
+                background-color: #3498db;
+                color: white;
+                padding: 15px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                width: 100%;
+            }
+
+            .button:hover {
+                background-color: #2980b9;
+            }
+
+            p {
+                text-align: center;
+                font-size: 16px;
+                margin-top: 10px;
+                color: #555;
+            }
+
+            a {
+                color: #3498db;
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="glass-container">
+            <div id="registerPage">
+                <h1 class="title">Register</h1>
+                <form id="form" method="POST">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="email" placeholder="Email" name="Email" id="email" required />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="password" placeholder="Password" name="Password" id="password" required />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <button class="button" type="submit" id="submit-button">Register</button>
+                        </div>
+                    </div>
+
+                    <p>Already have an account? <a href="logs.html">Login here</a></p>
+                </form>
+            </div>
+        </div>
+
+        <div id="message" style="
+            display: none;
+            margin: 20px;
+            font-weight: bold;
+            color: green;
+            padding: 8px;
+            background-color: beige;
+            border-radius: 4px;
+            border-color: aquamarine;
+        "></div>
+
+
+
+    <script>
+      document.getElementById("form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent the default form submission
+        document.getElementById("message").textContent = "Submitting..";
+        document.getElementById("message").style.display = "block";
+        document.getElementById("submit-button").disabled = true;
+
+        // Collect the form data
+        var formData = new FormData(this);
+        var keyValuePairs = [];
+        for (var pair of formData.entries()) {
+          keyValuePairs.push(pair[0] + "=" + pair[1]);
+        }
+
+        var formDataString = keyValuePairs.join("&");
+
+        // Send a POST request to your Google Apps Script
+        fetch(
+          `https://script.google.com/macros/s/AKfycbxAYd4Ct976pPA_aCYAHboA8mwY4XO4mguS_tTIi2bunsauZJd0QaZVSxfu9GHJpSoFcw/exec`,
+          {
+            redirect: "follow",
+            method: "POST",
+            body: formDataString,
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8",
+            },
+          }
+        )
+          .then(function (response) {
+            // Check if the request was successful
+            if (response) {
+              return response; // Assuming your script returns JSON response
+            } else {
+              throw new Error("Failed to submit the form.");
+            }
+          })
+          .then(function (data) {
+            // Display a success message
+            document.getElementById("message").textContent =
+              "Data submitted successfully!";
+            document.getElementById("message").style.display = "block";
+            document.getElementById("message").style.backgroundColor = "green";
+            document.getElementById("message").style.color = "beige";
+            document.getElementById("submit-button").disabled = false;
+            document.getElementById("form").reset();
+            // Redirect to regs.html
+            window.location.href = "logs.html";
+
+            setTimeout(function () {
+              document.getElementById("message").textContent = "";
+              document.getElementById("message").style.display = "none";
+            }, 2600);
+          })
+          .catch(function (error) {
+            // Handle errors, you can display an error message here
+            console.error(error);
+            document.getElementById("message").textContent =
+              "An error occurred while submitting the form.";
+            document.getElementById("message").style.display = "block";
+          });
+      });
+    </script>
+</body>
+</html>
+
+</body>
+
+</html>

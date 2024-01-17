@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HD Optical Clinic </title>
+    <style>
+        header{
+            text-align: center;
+        }
+        header img {
+            width: 100%;
+            height: auto; 
+        }
+    </style>
+</head>
+<body style="background-color: rgb(255, 255, 255);">
+
+<header>
+    <img src="logo1.jpeg" alt="Header Image">
+</header>
+
+<style>
+    .custom-padding5{
+        padding-top: 5%;
+    }
+</style>
+<p class="h4 mb-4 bold-text" style="text-align: center; font-weight: bold; font-size: x-large  ; custom-padding5: padding-top;" >Patient Record Form</p>
+<!--<body>
+    <section class="hero is-primary is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">HD Optical Clinic</h1>
+            </div>
+        </div>-->
+    </section>
+    <form id="form" class="container m-4 pl-4" method="POST">
+        <div class="field">
+            <label class="label">ID</label>
+            <div class="control">
+                <input class="input" type="number" placeholder="Your Patient ID" name="ID" id="ID" required />
+            </div>
+        </div>
+        <label class="label">Name</label>
+        <div class="control">
+            <input class="input" type="text" placeholder="Your Patient Name" name="Name" id="Name" required />
+        </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Address</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Your Address" name="Address" id="Address" required />
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Date</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Date" name="Date" id="Date" required />
+            </div>
+        </div>
+
+
+        <div class="field">
+            <label class="label">Gender</label>
+            <div class="control">
+                <label class="radio">
+                    <input type="radio" name="Gender" value="male" id="Male" required> Male
+                </label>
+                <label class="radio">
+                    <input type="radio" name="Gender" value="female" id="Female" required> Female
+                </label>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Age</label>
+            <div class="control">
+                <input class="input" placeholder="Your Age" name="Age" id="Age" required></input>
+            </div>
+        </div>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            th,
+            td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            .label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .input {
+                width: 100%;
+                padding: 8px;
+                box-sizing: border-box;
+            }
+        </style>
+        <p class="h4 mb-4 bold-text" style="text-align: center; font-weight: bold; font-size: larger; margin-top: 3%;" >Prescription</p>
+        <table>
+           
+                    <label class="label">O.D.</label>
+                    <!-- <th>O.D. </th>
+                    <th>O.D. </th> -->
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="odSph" class="label"> Sph.</label>
+                        <input type="text" id="O.D Sph" name="O.D Sph." class="input"
+                            placeholder="Enter O.D. Sph. value">
+                    </td>
+                    <td>
+                        <label for="cyl" class="label">Cyl.</label>
+                        <input type="text" id="O.D Cyl" name="O.D Cyl." class="input" placeholder="Enter Cyl. value">
+                    </td>
+                    <td>
+                        <label for="axis" class="label">Axis</label>
+                        <input type="text" id="O.D Axis" name="O.D Axis" class="input" placeholder="Enter Axis value">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <table>
+                   <label class="label">O.S.</label>
+                    <!-- <th>O.S. </th>
+                    <th>O.S. </th> -->
+          
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="odSph" class="label"> Sph.</label>
+                        <input type="text" id="O.S Sph" name="O.S Sph." class="input"
+                            placeholder="Enter O.D. Sph. value">
+                    </td>
+                    <td>
+                        <label for="cyl" class="label">Cyl.</label>
+                        <input type="text" id="O.S Cyl" name="O.S Cyl." class="input" placeholder="Enter Cyl. value">
+                    </td>
+                    <td>
+                        <label for="axis" class="label">Axis</label>
+                        <input type="text" id="O.S Axis" name="O.S Axis" class="input" placeholder="Enter Axis value">
+                    </td>
+                    
+                </tr>
+                
+            </tbody>
+        </table>
+        <label for="add" class="label"> ADD: </label>
+ <table>
+            <thead>
+                <tr>
+                    <th>O.D. </th>
+                    <th>P.D. </th>
+                    <th>O.S. </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <!-- <label for="odSph" class="label"> Sph.</label> -->
+                        <input type="text" id="O.D" name="O.D" class="input"
+                            placeholder="Enter O.D. value">
+                    </td>
+                    <td>
+                        <!-- <label for="cyl" class="label">Cyl.</label> -->
+                        <input type="text" id="P.D" name="P.D" class="input" placeholder="Enter P.D value">
+                    </td>
+                    <td>
+                        <!-- <label for="axis" class="label">Axis</label> -->
+                        <input type="text" id="O.S" name="O.S" class="input" placeholder="Enter O.S value">
+                    </td>
+                    
+                </tr>
+                
+            </tbody>
+        </table>
+        <div class="field">
+            <label class="label">Notes</label>
+            <div class="control">
+                <textarea class="textarea" placeholder="Enter your notes" name="Notes" id="Notes" required></textarea>
+            </div>
+        </div>
+     <style>
+        #submit-button{
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+        }
+     </style>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-primary" type="submit" id="submit-button" >
+                    Submit
+                </button>
+
+                <!-- <div class="control">
+									<button class="button is-danger" type="button" onclick="deleteRecord()">Delete</button>
+							</div> -->
+            </div>
+            <style>
+                .cancel-button{
+                    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+                }
+            </style>
+            <div class="control">
+                <button class="button is-danger cancel-button" type="button" onclick="cancelEdit()">Cancel</button>
+            </div>
+        </div>
+    </form>
+    <div id="message" style="
+        display: none;
+        margin: 20px;
+        font-weight: bold;
+        color: green;
+        padding: 8px;
+        background-color: beige;
+        border-radius: 4px;
+        border-color: aquamarine;"></div>
+
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+    <style>
+        /* Existing styles... */
+
+        /* Add padding to the search button */
+        .search-button {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /* Center the search bar on smaller screens */
+    @media only screen and (max-width: 768px) {
+        .custom-padding2, .custom-padding-button {
+            margin-left: 0;
+        }
+
+        .custom-padding3 {
+            padding-left: 0;
+            text-align: center;
+        }
+    }
+
+    /* Add some space between search input and button on larger screens */
+    @media only screen and (min-width: 769px) {
+        .custom-padding3 {
+            margin-right: 10px;
+        }
+    }
+    </style>
+
+</style>
+    <p class="h4 mb-4 bold-text" style="text-align: center; font-weight: bold; font-size: larger; text-shadow: 1px 1px 1px #727171; font-size: x-large;" >Patient Records Table</p>
+    <!-- <button type="button" class="button is-primary" onclick="toggleDataVisibility()"> Show Data</button>
+    <button type="button" class="button is-primary" onclick="toggleDataNoVisibility()"> Hide Data</button>
+    </div>
+</div> -->
+    <div class="table-responsive">
+        <div id="dataTable">
+            <!-- The Data Table is inserted here by JavaScript -->
+        </div>
+    </div>
+    <br>
+    <style>
+          .custom-padding{
+            padding-left: 10%;
+        }
+    </style>
+
+    <style>
+        .custom-padding2{
+            padding-left: 3%;
+        }
+    </style>
+
+    <style>
+        .custom-padding3{
+            /* padding-left: 24.5%; */
+            text-align: center;
+        }
+        
+    </style>
+
+
+ 
+    <!-- <button type="button" class="button is-primary" onclick="getAllRecords()">Get ALL Data</button> -->
+    <!-- Add a search input field -->
+    <div class="field">
+        <label class="label custom-padding3">  Search your Patient Records</label>
+        <div class="field has-addons">
+            <div class="control is-expanded custom-padding2">
+                <input class="input is-1em" type="text" placeholder="Search..." id="searchInput" oninput="updateDataTable(data)" style="width:50%; margin-left:50%">
+
+      </div>
+
+<style>
+    .custom-padding-button{
+        padding-right: 30%;
+    }
+</style>
+            <div class="control custom-padding-button">
+                <button type="button" class="button is-primary is-1em search-button" onclick="getAllRecords()">Search</button>
+            </div>
+        </div> 
+        <br/>
+    </div>
+     <div class="control" style="padding-left: 3%;"><!-- Adjust padding as needed -->
+            <button class="button is-success is-1em button-with-shadow" onclick="exportToExcel()">Export to Excel</button>
+        </div>
+    </div>
+
+    
+    
+    <style>
+        #table-container{
+            padding-left: 3%;
+            padding-right: 5%;
+        }
+    </style>
+    <div id="table-container"></div>
+
+    <style>
+        .custom-padding1{
+            padding-left: 3%;
+            padding-bottom: 5%;
+        }
+    </style>
+
+    <style>
+        .button-with-shadow{
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    
+    <!-- Add a refresh button
+    <div class="field is-grouped is-horizontal">
+        <div class="control custom-padding1">
+            <button class="button is-info is-1em button-with-shadow " onclick="refreshData()">Refresh</button>
+        </div> -->
+       
+      
+    <script>
+     // Global variable to store the data
+    let data = [];
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Fetch data and initialize the ID field with the next available ID
+        fetchDataAndInitialize();
+
+        // Set up an interval to fetch and update data every 5 seconds (adjust the interval as needed)
+        setInterval(fetchAndRefreshData, 5000);
+    });
+
+        document.getElementById("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // ... Your existing form submission logic ...
+
+            // After submitting the form, fetch the latest data to get the updated ID
+            fetchDataAndInitialize();
+        });
+        function exportToExcel() {
+            // Prepare data for export
+            const exportData = data.map(record => {
+                const formattedRecord = { ...record }; // Copy the record to avoid modifying the original data
+
+                // Convert Date to a user-friendly format
+                formattedRecord.Date = formatDateToInputString(record.Date, false);
+
+                return formattedRecord;
+            });
+
+            // Create a new Excel workbook
+            const workbook = XLSX.utils.book_new();
+            const worksheet = XLSX.utils.json_to_sheet(exportData);
+
+            // Add the worksheet to the workbook
+            XLSX.utils.book_append_sheet(workbook, worksheet, "PatientRecords");
+
+            // Save the workbook to a file
+            XLSX.writeFile(workbook, "PatientRecords.xlsx");
+        }
+
+        function fetchDataAndInitialize() {
+            fetch(`https://script.google.com/macros/s/AKfycbzaTcSrxpjJeh0NQGNv1DZu3ASLNSCLw_idWF6qTuxg72qKOyrUlm-QeWjEtaZLcSSO/exec`)
+                .then(processData)
+                .then(function (fetchedData) {
+                    data = fetchedData;
+
+                    // Calculate the next available ID and populate the ID field
+                    const nextID = calculateNextID(data);
+                    document.getElementById("ID").value = nextID;
+
+                    updateDataTable(); // Initial data load
+                    // setInterval(fetchAndRefreshData, 1000); // Periodically update data every 5 seconds
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
+        }
+
+        function fetchAndRefreshData() {
+            fetch(`https://script.google.com/macros/s/AKfycbzaTcSrxpjJeh0NQGNv1DZu3ASLNSCLw_idWF6qTuxg72qKOyrUlm-QeWjEtaZLcSSO/exec`)
+                .then(processData)
+                .then(function (fetchedData) {
+                data = fetchedData;
+                updateDataTable(); // Update the table with the latest data
+            })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
+        }
+   
+        document.addEventListener('DOMContentLoaded', function () {
+            flatpickr("#Date", {
+                dateFormat: "Y-m-d",
+                enableTime: false,
+            });
+        });
+
+        var editMode = false;
+        var editRecordId;
+
+        document.getElementById("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            if (editMode) {
+                // If in edit mode, update the existing record
+                document.getElementById("message").textContent = "Updating record...";
+                document.getElementById("message").style.display = "block";
+                document.getElementById("submit-button").disabled = true;
+
+                var formData = new FormData(this);
+                var keyValuePairs = [];
+                for (var pair of formData.entries()) {
+                    keyValuePairs.push(pair[0] + "=" + pair[1]);
+                }
+
+                var formDataString = keyValuePairs.join("&");
+
+                fetch(`https://script.google.com/macros/s/AKfycbzaTcSrxpjJeh0NQGNv1DZu3ASLNSCLw_idWF6qTuxg72qKOyrUlm-QeWjEtaZLcSSO/exec?id=${editRecordId}`, {
+                    redirect: "follow",
+                    method: "POST",
+                    body: formDataString,
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    mode: "cors", // Include this line for CORS requests
+                })
+
+                    // .then(function (response) {
+                    //     if (response.ok) {
+                    //         return response.json();
+                    //     } else {
+                    //         throw new Error("Record updated successfully!");
+                    //     }
+                    // })
+                    .then(function (data) {
+                        document.getElementById("message").textContent = "Record updated successfully!";
+                        document.getElementById("message").style.backgroundColor = "green";
+                        document.getElementById("message").style.color = "beige";
+                        document.getElementById("submit-button").disabled = false;
+
+                        setTimeout(function () {
+                            document.getElementById("message").textContent = "";
+                            document.getElementById("message").style.display = "none";
+                        }, 2600);
+
+                        // Reset the form and exit edit mode
+                        editMode = false;
+                        editRecordId = null;
+                        document.getElementById("form").reset();
+                        getAllRecords(); // Refresh the table after update
+                    })
+                //         .catch(function (error) {
+                //             console.error(error);
+                //             document.getElementById("message").textContent = "An error occurred while updating the record.";
+                //             document.getElementById("message").style.display = "block";
+                //         });
+            } else {
+                // If not in edit mode, submit the new record
+                document.getElementById("message").textContent = "Submitting..";
+                document.getElementById("message").style.display = "block";
+                document.getElementById("submit-button").disabled = true;
+
+                var formData = new FormData(this);
+                var keyValuePairs = [];
+                for (var pair of formData.entries()) {
+                    keyValuePairs.push(pair[0] + "=" + pair[1]);
+                }
+
+                var formDataString = keyValuePairs.join("&");
+
+                fetch(
+                    `https://script.google.com/macros/s/AKfycbzaTcSrxpjJeh0NQGNv1DZu3ASLNSCLw_idWF6qTuxg72qKOyrUlm-QeWjEtaZLcSSO/exec`,
+                    {
+                        redirect: "follow",
+                        method: "POST",
+                        body: formDataString,
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded",
+                        },
+                        mode: "cors", // Include this line for CORS requests
+                    }
+                )
+                    .then(function (data) {
+                        document.getElementById("message").textContent =
+                            "Data submitted successfully!";
+                        document.getElementById("message").style.display = "block";
+                        document.getElementById("message").style.backgroundColor = "green";
+                        document.getElementById("message").style.color = "beige";
+                        document.getElementById("submit-button").disabled = false;
+
+                        setTimeout(function () {
+                            document.getElementById("message").textContent = "";
+                            document.getElementById("message").style.display = "none";
+                        }, 2600);
+
+                        getAllRecords(); // Refresh the table after submission
+                        // Reset the form
+                        document.getElementById("form").reset();
+                    })
+                    .catch(function (error) {
+                        console.error(error);
+                        document.getElementById("message").textContent =
+                            "An error occurred while submitting the form.";
+                        document.getElementById("message").style.display = "block";
+                    });
+            }
+        });
+
+        function cancelEdit() {
+            editMode = false;
+            editRecordId = null;
+            document.getElementById("form").reset();
+        }
+
+        function createEditButton(record) {
+            var editButton = document.createElement("button");
+            editButton.textContent = "Edit";
+            editButton.className = "button is-warning is-small";
+            editButton.addEventListener("click", function () {
+                editMode = true;
+                editRecordId = record.ID;
+                updateFormForEdit(record);
+                document.getElementById("form").scrollIntoView({ behavior: "smooth" });
+
+            });
+
+            return editButton;
+            tableContainer.appendChild(table);
+        }
+
+        function updateFormForEdit(record) {
+            editRecordId = record.ID; // Store the ID of the record being edited
+            document.getElementById("ID").value = record.ID;
+            // document.getElementById("ID").readOnly = true; // Disable editing of the ID field
+            document.getElementById("Name").value = record.Name;
+            document.getElementById("Address").value = record.Address;
+
+            // Format the date for the input field
+            const formattedDate = formatDateToInputString(record.Date, true);
+            document.getElementById("Date").value = formattedDate;
+
+            document.querySelector(`input[name="Gender"][value="${record.Gender}"]`).checked = true;
+            document.getElementById("Age").value = record.Age;
+            document.getElementById("O.D Sph").value = record["O.D Sph."];
+            document.getElementById("O.D Cyl").value = record["O.D Cyl."];
+            document.getElementById("O.D Axis").value = record["O.D Axis"];
+            document.getElementById("O.S Sph").value = record["O.S Sph."];
+            document.getElementById("O.S Cyl").value = record["O.S Cyl."];
+            document.getElementById("O.S Axis").value = record["O.S Axis"];
+            document.getElementById("O.D").value = record["O.D"];
+            document.getElementById("P.D").value = record["P.D"];
+            document.getElementById("O.S").value = record["O.S"];
+            document.getElementById("Notes").value = record["Notes"];
+        }
+
+        function formatDateToInputString(dateString, forInput) {
+            const date = new Date(dateString);
+
+            if (forInput) {
+                // Format for the date input element using Flatpickr format
+                const formattedDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+                return formattedDate.toISOString().split('T')[0];
+            } else {
+                // Format for displaying in the DataTable without timestamp
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            }
+        }
+
+        var showData = true;
+
+        document.getElementById("searchInput").addEventListener("input", function () {
+            // Update the data table as the user types
+            updateDataTable(data);
+        });
+        function updateDataTable() {
+            var tableContainer = document.getElementById("table-container");
+            tableContainer.innerHTML = "";
+
+            var searchInput = document.getElementById("searchInput").value.toLowerCase();
+
+            var filteredData = data.filter(record => matchesSearchQuery(record, searchInput));
+
+            if (Array.isArray(filteredData) && filteredData.length > 0) {
+                // // Reverse the order of records to show the latest edited record first
+                // filteredData.reverse();
+                // Sort filteredData based on 'Date' in descending order
+        //          // Sort filteredData based on 'ID' in ascending order
+        // filteredData.sort((a, b) => a.ID - b.ID);
+
+                filteredData.sort((a, b) => new Date(b.Date) - new Date(a.Date));
+                // Sort filteredData based on 'Name' in ascending order
+                filteredData.sort((a, b) => a.Name.localeCompare(b.Name));
+                var table = document.createElement("table");
+                table.className = "table is-bordered is-striped is-narrow is-hoverable";
+
+                var thead = document.createElement("thead");
+                var headerRow = document.createElement("tr");
+
+                Object.keys(filteredData[0]).forEach(header => {
+                    var th = document.createElement("th");
+                    th.textContent = header;
+                    headerRow.appendChild(th);
+                });
+
+                // Add an extra column for the "Edit" button
+                var editTh = document.createElement("th");
+                editTh.textContent = "Edit";
+                headerRow.appendChild(editTh);
+
+                thead.appendChild(headerRow);
+                table.appendChild(thead);
+
+                var tbody = document.createElement("tbody");
+
+                filteredData.forEach(record => {
+                    var row = document.createElement("tr");
+
+                    Object.entries(record).forEach(([key, value]) => {
+                        var cell = document.createElement("td");
+
+                        // Check if the key is 'Date' and apply the formatting
+                        if (key === 'Date') {
+                            cell.textContent = formatDateToInputString(value, false);
+                        } else {
+                            cell.textContent = value;
+                        }
+
+                        row.appendChild(cell);
+                    });
+
+                    // Add the "Edit" button to each row
+                    var editCell = document.createElement("td");
+                    editCell.appendChild(createEditButton(record));
+                    row.appendChild(editCell);
+
+                    tbody.appendChild(row);
+                });
+
+                table.appendChild(tbody);
+                tableContainer.appendChild(table);
+            } else {
+                console.error("Filtered data is not in the expected format:", filteredData);
+            }
+        }
+
+        function matchesSearchQuery(record, searchInput) {
+            // Check if any field in the record contains the search query
+            return Object.values(record).some(value =>
+                value.toString().toLowerCase().includes(searchInput)
+            );
+        }
+//  document.addEventListener("DOMContentLoaded", function () {
+//             // Check if the user is logged in, if not, redirect to login.html
+//             if (!isLoggedIn()) {
+//                 window.location.href = "regs.html";
+//             }
+//         });
+
+//         function isLoggedIn() {
+//             // Implement a check to determine if the user is logged in
+//             // You can use session storage, cookies, or other methods to store login state
+//             // For simplicity, let's assume a session storage key named 'isLoggedIn'
+//             return sessionStorage.getItem('isLoggedIn') === 'true';
+//         }
+
+        function processData(response) {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        }
+
+        function getAllRecords() {
+            fetch(`https://script.google.com/macros/s/AKfycbzaTcSrxpjJeh0NQGNv1DZu3ASLNSCLw_idWF6qTuxg72qKOyrUlm-QeWjEtaZLcSSO/exec`)
+                .then(processData)
+                .then(updateDataTable)
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Fetch data and populate the ID field with the next available ID
+            fetch(`https://script.google.com/macros/s/AKfycbzaTcSrxpjJeh0NQGNv1DZu3ASLNSCLw_idWF6qTuxg72qKOyrUlm-QeWjEtaZLcSSO/exec`)
+                .then(processData)
+                .then(function (data) {
+                    // Calculate the next available ID
+                    const nextID = calculateNextID(data);
+
+                    // Populate the ID field
+                    document.getElementById("ID").value = nextID;
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
+        });
+
+        function calculateNextID(data) {
+            // Find the maximum ID from the existing data
+            const maxID = data.reduce((max, record) => {
+                const recordID = parseInt(record.ID, 10);
+                return recordID > max ? recordID : max;
+            }, 0);
+
+            // Increment the maximum ID to get the next available ID
+            const nextID = maxID + 1;
+
+            return nextID;
+        }
+
+        // Add a function to refresh data
+        function refreshData() {
+            fetchDataAndInitialize(); // Assuming fetchDataAndInitialize is the function to fetch and display data
+        }
+
+    </script>
+</body>
+
+</html>
